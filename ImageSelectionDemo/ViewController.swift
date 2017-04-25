@@ -10,6 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet var imageView: UIImageView!
+
+    @IBAction func btnSelectImageDidTap(_ sender: UIButton) {
+        
+        HSImageSelection.manager.openImagePicker(from: self, allowEditing: true) { (imageSelectionManager, selectedImage) in
+            if let image = selectedImage {
+                self.imageView.image = image;
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

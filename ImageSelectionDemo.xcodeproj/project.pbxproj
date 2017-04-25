@@ -12,6 +12,7 @@
 		DE1B700D1E7D4D0F00ECABAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1B700B1E7D4D0F00ECABAC /* Main.storyboard */; };
 		DE1B700F1E7D4D0F00ECABAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE1B700E1E7D4D0F00ECABAC /* Assets.xcassets */; };
 		DE1B70121E7D4D1000ECABAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1B70101E7D4D1000ECABAC /* LaunchScreen.storyboard */; };
+		DE1B701A1E7D565600ECABAC /* HSImageSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B70191E7D565600ECABAC /* HSImageSelection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		DE1B700E1E7D4D0F00ECABAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE1B70111E7D4D1000ECABAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE1B70131E7D4D1000ECABAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE1B70191E7D565600ECABAC /* HSImageSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSImageSelection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				DE1B70071E7D4D0F00ECABAC /* AppDelegate.swift */,
 				DE1B70091E7D4D0F00ECABAC /* ViewController.swift */,
 				DE1B700B1E7D4D0F00ECABAC /* Main.storyboard */,
+				DE1B70191E7D565600ECABAC /* HSImageSelection.swift */,
 				DE1B700E1E7D4D0F00ECABAC /* Assets.xcassets */,
 				DE1B70101E7D4D1000ECABAC /* LaunchScreen.storyboard */,
 				DE1B70131E7D4D1000ECABAC /* Info.plist */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1B700A1E7D4D0F00ECABAC /* ViewController.swift in Sources */,
+				DE1B701A1E7D565600ECABAC /* HSImageSelection.swift in Sources */,
 				DE1B70081E7D4D0F00ECABAC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
