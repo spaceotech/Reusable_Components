@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,49 +14,47 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageSelectionDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utK-OP-sG9">
-                                <rect key="frame" x="16" y="28" width="343" height="31"/>
-                                <color key="backgroundColor" red="0.32626513070000002" green="0.69980614799999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHt-MM-GaT">
+                                <rect key="frame" x="16" y="37" width="343" height="40"/>
+                                <color key="backgroundColor" red="0.076119742340000004" green="0.301643416" blue="0.60753093270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="I5E-4o-ZhU"/>
+                                    <constraint firstAttribute="height" constant="40" id="5oD-DE-FPl"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="Select Image">
-                                    <color key="titleColor" red="1" green="0.99106121729999996" blue="0.98137353169999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnSelectImageDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zb0-nE-6od"/>
+                                    <action selector="btnSelectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvy-es-f1j"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oBQ-5Z-Q00">
-                                <rect key="frame" x="16" y="79" width="343" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="leJ-VH-MPf">
+                                <rect key="frame" x="16" y="95" width="343" height="547"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oBQ-5Z-Q00" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7hs-US-U4t"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oBQ-5Z-Q00" secondAttribute="bottom" constant="20" id="B2L-ss-i1S"/>
-                            <constraint firstItem="utK-OP-sG9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Ti1-6R-DEh"/>
-                            <constraint firstItem="utK-OP-sG9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VAT-tr-uPL"/>
-                            <constraint firstItem="oBQ-5Z-Q00" firstAttribute="top" secondItem="utK-OP-sG9" secondAttribute="bottom" constant="20" id="XFM-Zq-gV1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oBQ-5Z-Q00" secondAttribute="trailing" id="eqI-WZ-p2G"/>
-                            <constraint firstItem="utK-OP-sG9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zCA-k1-evB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KHt-MM-GaT" secondAttribute="trailing" constant="16" id="OyA-iw-JXV"/>
+                            <constraint firstItem="leJ-VH-MPf" firstAttribute="trailing" secondItem="KHt-MM-GaT" secondAttribute="trailing" id="S8r-oc-aYs"/>
+                            <constraint firstItem="leJ-VH-MPf" firstAttribute="leading" secondItem="KHt-MM-GaT" secondAttribute="leading" id="bje-zo-P0F"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="leJ-VH-MPf" secondAttribute="bottom" constant="25" id="c61-ny-miG"/>
+                            <constraint firstItem="leJ-VH-MPf" firstAttribute="top" secondItem="KHt-MM-GaT" secondAttribute="bottom" constant="18" id="ca7-bL-gZv"/>
+                            <constraint firstItem="KHt-MM-GaT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="gDJ-3f-4iK"/>
+                            <constraint firstItem="KHt-MM-GaT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="sIb-aR-gba"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="oBQ-5Z-Q00" id="DT3-jg-2Bs"/>
+                        <outlet property="imageView" destination="leJ-VH-MPf" id="9QR-tq-7le"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="86"/>
+            <point key="canvasLocation" x="80.799999999999997" y="112.89355322338831"/>
         </scene>
     </scenes>
 </document>

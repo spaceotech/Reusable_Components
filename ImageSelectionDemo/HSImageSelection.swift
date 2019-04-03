@@ -1,62 +1,66 @@
 //
-//  HSImageSelection.swift
+//  HSimageSelection.swift
 //  ImageSelectionDemo
 //
-//  Created by Hitendra Mac on 18/03/17.
-//  Copyright © 2017 Hitendra Mac. All rights reserved.
+//  Created by SOTSYS008 on 12/03/19.
+//  Copyright © 2019 SOTSYS008. All rights reserved.
 //
 
 import UIKit
 
-//This is the completion block used to get image back in calling viewController
-typealias HSImageSelectionComplitionBlock = (_ imageSelect:HSImageSelection, _ selectedImage : UIImage?)->()
-
-class HSImageSelection: NSObject {
+ typealias HSImageSelectionComplitionBlock = (_ imageSelect:HSImageSelection, _ selectedImage : UIImage?)->()
     
-    static let manager = HSImageSelection()
-    
-    var confirmBlock : HSImageSelectionComplitionBlock?
-    fileprivate var openInViewController : UIViewController!
-    
-    //main function used to show imageSelection options
-    func openImagePicker(from viewController:UIViewController, allowEditing : Bool, confirm:@escaping HSImageSelectionComplitionBlock)  {
-        confirmBlock = nil
-        confirmBlock = confirm
-        openInViewController = viewController
+    class HSImageSelection: NSObject {
         
-        //create ActionSheet to show options to user
-        let alertController = UIAlertController(title: "Select photo", message: "Select photo", preferredStyle: .actionSheet)
+        static let manager = HSImageSelection()
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+        var confirmBlock : HSImageSelectionComplitionBlock?
+        fileprivate var openInViewController : UIViewController!
+        func openImagePicker(from viewController:UIViewController, allowEditing : Bool, confirm:@escaping HSImageSelectionComplitionBlock)  {
+            confirmBlock = nil
+            confirmBlock = confirm
+            openInViewController = viewController
             
+            //create ActionSheet to show options to user
+            let alertController = UIAlertController(title: "Select photo", message: "Select photo", preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                
+            }
+            
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
+                if UIImagePickerController.isSourceTypeAvailable(.camera){
+                    self.selectPictureFrom(UIImagePickerController.SourceType.camera, allowEditing: allowEditing);
+                }else{
+                    print("You don't have a camera for this device")
+                    
+                }
+            }
+           
+            let photoGelleryAction = UIAlertAction(title: "Photo Gallery", style: .default) { action in
+                self.selectPictureFrom(UIImagePickerController.SourceType.photoLibrary, allowEditing: allowEditing);
+            }
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(cameraAction)
+            alertController.addAction(photoGelleryAction)
+            
+            viewController.present(alertController, animated: true, completion: nil)
         }
         
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
-            self.selectPictureFrom(UIImagePickerControllerSourceType.camera, allowEditing: allowEditing);
+        //used to open UIImagePickerController with selected sourceType
+        fileprivate func selectPictureFrom(_ sourceType : UIImagePickerController.SourceType, allowEditing : Bool)
+        {
+            let picker = UIImagePickerController()
+            picker.allowsEditing = allowEditing
+            picker.sourceType = sourceType
+            picker.delegate = self
+            openInViewController.present(picker, animated: true, completion: nil)
         }
-        
-        let photoGelleryAction = UIAlertAction(title: "Photo Gallery", style: .default) { action in
-            self.selectPictureFrom(UIImagePickerControllerSourceType.photoLibrary, allowEditing: allowEditing);
-        }
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(cameraAction)
-        alertController.addAction(photoGelleryAction)
-        
-        viewController.present(alertController, animated: true, completion: nil)
+   
+
     }
-    
-    //used to open UIImagePickerController with selected sourceType
-    fileprivate func selectPictureFrom(_ sourceType : UIImagePickerControllerSourceType, allowEditing : Bool)
-    {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = allowEditing
-        picker.delegate = self
-        picker.sourceType = sourceType
-        openInViewController.present(picker, animated: true, completion: nil)
-    }
-    
-}
+
 
 //MARK:- UIImagePickerControllerDelegate
 extension HSImageSelection :UIImagePickerControllerDelegate, UINavigationControllerDelegate
@@ -67,14 +71,18 @@ extension HSImageSelection :UIImagePickerControllerDelegate, UINavigationControl
             confirmBlock!(self,nil)
         }
         openInViewController.dismiss(animated: true, completion: nil)
+        UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
     //this method triggers when user select Photo
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
+     {
         var newImage: UIImage? = nil
-        if let possibleImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+       
+        {
             newImage = possibleImage
-        } else if let possibleImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             newImage = possibleImage
         }
         
@@ -85,3 +93,7 @@ extension HSImageSelection :UIImagePickerControllerDelegate, UINavigationControl
         openInViewController.dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+

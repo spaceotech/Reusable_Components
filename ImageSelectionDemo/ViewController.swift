@@ -2,18 +2,17 @@
 //  ViewController.swift
 //  ImageSelectionDemo
 //
-//  Created by Hitendra Mac on 18/03/17.
-//  Copyright © 2017 Hitendra Mac. All rights reserved.
+//  Created by SOTSYS008 on 12/03/19.
+//  Copyright © 2019 SOTSYS008. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet var imageView: UIImageView!
-
-    @IBAction func btnSelectImageDidTap(_ sender: UIButton) {
+    @IBAction func btnSelectImage(_ sender: UIButton) {
         
         HSImageSelection.manager.openImagePicker(from: self, allowEditing: true) { (imageSelectionManager, selectedImage) in
             if let image = selectedImage {
@@ -26,11 +25,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

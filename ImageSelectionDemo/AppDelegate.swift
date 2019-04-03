@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  ImageSelectionDemo
 //
-//  Created by Hitendra Mac on 18/03/17.
-//  Copyright © 2017 Hitendra Mac. All rights reserved.
+//  Created by SOTSYS008 on 12/03/19.
+//  Copyright © 2019 SOTSYS008. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
