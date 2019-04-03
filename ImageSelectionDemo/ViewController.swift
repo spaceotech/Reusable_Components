@@ -10,10 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // Outlets
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func btnSelectImage(_ sender: UIButton) {
-        
+        //Call method for open picker options from HSImageSelection
         HSImageSelection.manager.openImagePicker(from: self, allowEditing: true) { (imageSelectionManager, selectedImage) in
             if let image = selectedImage {
                 self.imageView.image = image;
@@ -21,12 +22,9 @@ class ViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-
 }
 
